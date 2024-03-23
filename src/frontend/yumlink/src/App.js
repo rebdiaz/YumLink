@@ -1,6 +1,8 @@
 import React from "react";
 import logo from './logo.svg';
 import './App.css';
+import LoginButton from './LoginButton';
+import SignUpButton from './SignUpButton';
 import axios from "axios";
 
 function App() {
@@ -21,13 +23,16 @@ function App() {
         <p>
             {!data ? "Welcome to YumLink" : data}
         </p>
+        <div>
+          <LoginButton />
+          <SignUpButton />
+        </div>
         <a
           className="App-Login"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Login/Sign up
         </a>
       </header>
     </div>
