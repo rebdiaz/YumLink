@@ -19,15 +19,15 @@ function App() {
           </script>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-            {!data ? "Loading..." : data}
+            {!data ? "Welcome to YumLink" : data}
         </p>
         <a
-          className="App-link"
+          className="App-Login"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Login/Sign up
         </a>
       </header>
     </div>
