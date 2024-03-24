@@ -25,7 +25,7 @@ const loginSchema = new mongoose.Schema({
 const Login = mongoose.model('Todo', loginSchema);
 
 app.get("/api", (req, res) => {
-    res.json({ message: "Hello from server!" });
+    res.json({ message: "Welcome to YumLink!" });
 });
 app.listen(port, () => console.log('Listening on port ', port))
 
