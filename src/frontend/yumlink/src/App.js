@@ -21,7 +21,7 @@ function App() {
           </script>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-            {!data ? "Welcome to YumLink" : data}
+            {!data ? "Loading..." : data}
         </p>
         <div>
           <LoginButton />
