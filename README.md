@@ -14,3 +14,6 @@ Terminal 2:
 MONGO  
 Make sure you have mongo installed  
 If you get an IP address error, go to Mongo website, login to our project, go to dashboard, there should be a pop-up that says add your IP address.
+
+npm install react-router-dom@5.2.0
+npm install react-scripts (could be the wrong name)
