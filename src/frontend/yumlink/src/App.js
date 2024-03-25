@@ -5,8 +5,8 @@ import LoginButton from './LoginButton';
 import SignUpButton from './SignUpButton';
 import axios, {post} from "axios";
 
-const myUsername = 'user123';
-const myPassword = 'myPass223';
+const myUsername = 'user1234';
+const myPassword = 'myPass223666667';
 
 function App() {
     const [data, setData] = React.useState(null);
