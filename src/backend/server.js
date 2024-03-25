@@ -4,6 +4,7 @@
 const express = require ('express')
 const mongoose = require('mongoose');
 const cors = require('cors');
+const {Signup} = require("./SignUp");
 const app = express()
 const port = 3001
 
@@ -23,6 +24,8 @@ mongoose.connect(MONGO_URL, {
 app.get("/api", (req, res) => {
     res.json({ message: "Welcome to YumLink!" });
 });
+
+app.post("/signup", Signup);
 
 app.use(
     cors({
