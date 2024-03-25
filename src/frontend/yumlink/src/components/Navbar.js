@@ -21,10 +21,10 @@ class NavBar extends Component{
 
             <div>
                 <ul id = "navbar">
-                    <li><a className="active" href = "index.html">Home</a></li>
+                    <li><a href = "/home">Home</a></li>
                     <li><a href = "index.html">Listing</a></li>
-                    <li><a href = "index.html">About</a></li>
-                    <li><a href = "index.html">Login/SignUp</a></li>
+                    <li><a href = "/about">About</a></li>
+                    <li><a href = "/login">Login/SignUp</a></li>
                 </ul>
             </div>
             <div id ="mobile" onClick={this.handleClick}>
