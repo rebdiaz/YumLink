@@ -1,41 +1,40 @@
-import React from "react";
-import logo from './logo.svg';
-import './App.css';
-import LoginButton from './LoginButton';
-import SignUpButton from './SignUpButton';
-import axios from "axios";
+// import React from "react";
+// import logo from './logo.svg';
+// import './App.css';
+// import LoginButton from './LoginButton';
+// import SignUpButton from './SignUpButton';
+// import axios from "axios";
+// import NavBar from "./components/Navbar";
+// import LoginSignup from "./components/LoginSignup/LoginSignup"
 
-function App() {
-    const [data, setData] = React.useState(null);
+// function App() {
+//   return (
+//     <div className="App">
+//       <LoginSignup>
+        
+//       </LoginSignup>
+      
+//     </div>
+//   );
+// }
 
-    React.useEffect(() => {
-        fetch("/api")
-            .then((res) => res.json())
-            .then((data) => setData(data.message));
-    }, []);
+// export default App;
 
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; // Import BrowserRouter and Route
+import LoginSignup from './components/LoginSignup/LoginSignup'; 
+import Home from './components/Home/Home'; 
+import NavBar from './components/Navbar';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-          <script>
-          </script>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-            {!data ? "Welcome to YumLink" : data}
-        </p>
-        <div>
-          <LoginButton />
-          <SignUpButton />
-        </div>
-        <a
-          className="App-Login"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavBar></NavBar>
+      <Switch>
+        <Route path="/login" component={LoginSignup} /> {/* Route for LoginSignup component */}
+        <Route path="/home" component={Home} /> {/* Route for Home component */}
+      </Switch>
+    </Router>
   );
 }
 
