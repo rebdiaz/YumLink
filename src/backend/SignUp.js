@@ -1,4 +1,4 @@
-const User = require("../Login");
+const User = require("./Login");
 
 
 module.exports.Signup = async (req, res, next) => {

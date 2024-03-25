@@ -3,7 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import LoginButton from './LoginButton';
 import SignUpButton from './SignUpButton';
-import axios from "axios";
+import axios, {post} from "axios";
+
+const myUsername = 'user123';
+const myPassword = 'myPass223';
 
 function App() {
     const [data, setData] = React.useState(null);
@@ -13,6 +16,12 @@ function App() {
             .then((res) => res.json())
             .then((data) => setData(data.message));
     }, []);
+
+    const { data1 } = axios.post(
+        "http://localhost:3001/signup",
+        {password: myPassword, username: myUsername},
+        { withCredentials: true }
+    );
 
   return (
     <div className="App">

@@ -5,6 +5,7 @@ const express = require ('express')
 const mongoose = require('mongoose');
 const cors = require('cors');
 const {Signup} = require("./SignUp");
+const authRoute = require("./AuthRoute");
 const app = express()
 const port = 3001
 
@@ -25,15 +26,18 @@ app.get("/api", (req, res) => {
     res.json({ message: "Welcome to YumLink!" });
 });
 
-app.post("/signup", Signup);
-
-app.use(
-    cors({
-        origin: ["http://localhost:3001"],
-        methods: ["GET", "POST", "PUT", "DELETE"],
-        credentials: true,
-    })
-);
-
 app.use(express.json());
+
+// CORS OPTIONS FROM CODE CAMP AND STACK OVERFLOW
+const corsOptions ={
+    origin:'http://localhost:3000',
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
+
+app.use("/", authRoute);
+
+
 // END OF SETUP CODE
