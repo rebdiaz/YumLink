@@ -13,21 +13,16 @@ mongoose.connect(MONGO_URL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
-    .then(() => console.log("MongoDB is  connected successfully"))
+    .then(() => {
+        app.listen(port, () => console.log('Listening on port ', port))
+    })
     .catch((err) => console.error(err));
 // K0G9ztchgMgxLDP1
 
 
-const loginSchema = new mongoose.Schema({
-    username: String,
-    password: String,
-});
-const Login = mongoose.model('Todo', loginSchema);
-
 app.get("/api", (req, res) => {
-    res.json({ message: "Hello from server!" });
+    res.json({ message: "Welcome to YumLink!" });
 });
-app.listen(port, () => console.log('Listening on port ', port))
 
 app.use(
     cors({

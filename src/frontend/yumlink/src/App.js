@@ -31,8 +31,8 @@ const App = () => {
     <Router>
       <NavBar></NavBar>
       <Switch>
-        <Route path="/login" component={LoginSignup} /> {/* Route for LoginSignup component */}
-        <Route path="/home" component={Home} /> {/* Route for Home component */}
+        <Route path="/login" component={LoginSignup} /> {/* Route for LoginSignup component /}
+        <Route path="/home" component={Home} /> {/ Route for Home component */}
       </Switch>
     </Router>
   );
