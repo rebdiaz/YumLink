@@ -5,9 +5,6 @@ import LoginButton from './LoginButton';
 import SignUpButton from './SignUpButton';
 import axios, {post} from "axios";
 
-const myUsername = 'user1234';
-const myPassword = 'myPass223666667';
-
 function App() {
     const [data, setData] = React.useState(null);
 
@@ -17,19 +14,19 @@ function App() {
             .then((data) => setData(data.message));
     }, []);
 
-    const { data1 } = axios.post(
-        "http://localhost:3001/signup",
-        {password: 'myPass223666667', username: 'user1234', name: 'Rebecca'},
-        { withCredentials: true }
-    );
-
-    const { data2 } = axios.post(
-        "http://localhost:3001/login",
-        {username: 'user1234', password: 'myPass223666667'},
-        { withCredentials: true }
-    )
-        .then(response => {console.log(response.data)}
-        );
+    // const { data1 } = axios.post(
+    //     "http://localhost:3001/signup",
+    //     {password: 'myPass223666667', username: 'user1234', name: 'Rebecca'},
+    //     { withCredentials: true }
+    // );
+    //
+    // const { data2 } = axios.post(
+    //     "http://localhost:3001/login",
+    //     {username: 'user1234', password: 'myPass223666667'},
+    //     { withCredentials: true }
+    // )
+    //     .then(response => {console.log(response.data)}
+    //     );
 
   return (
     <div className="App">
