@@ -18,7 +18,6 @@
     //     .then(response => {console.log(response.data)}
     //     );
 
-=======
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; // Import BrowserRouter and Route
 import LoginSignup from './components/LoginSignup/LoginSignup'; 
