@@ -7,6 +7,7 @@ import email_icon from '../Assets/email.png'
 import password_icon from '../Assets/password.png'
 import axios from "axios";
 
+//REFERENCE: https://www.freecodecamp.org/news/how-to-secure-your-mern-stack-application/#howtoimplementthebackend
 const LoginSignup = () => {
     const history = useHistory();
     const [action, setAction] = useState("Sign Up");
