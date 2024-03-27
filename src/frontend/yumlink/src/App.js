@@ -1,18 +1,8 @@
-import React from "react";
-import logo from './logo.svg';
-import './App.css';
-import LoginButton from './LoginButton';
-import SignUpButton from './SignUpButton';
-import axios, {post} from "axios";
-
-function App() {
-    const [data, setData] = React.useState(null);
-
-    React.useEffect(() => {
-        fetch("/api")
-            .then((res) => res.json())
-            .then((data) => setData(data.message));
-    }, []);
+    //React.useEffect(() => {
+    //    fetch("/api")
+    //        .then((res) => res.json())
+    //        .then((data) => setData(data.message));
+    //}, []);
 
     // const { data1 } = axios.post(
     //     "http://localhost:3001/signup",
@@ -28,28 +18,23 @@ function App() {
     //     .then(response => {console.log(response.data)}
     //     );
 
+=======
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; // Import BrowserRouter and Route
+import LoginSignup from './components/LoginSignup/LoginSignup'; 
+import Home from './components/Home/Home'; 
+import NavBar from './components/Navbar';
+
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-          <script>
-          </script>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-            {!data ? "Loading..." : data}
-        </p>
-        <div>
-          <LoginButton />
-          <SignUpButton />
-        </div>
-        <a
-          className="App-Login"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavBar></NavBar>
+      <Switch>
+        <Route path="/home" component={Home} /> {/* Route for Home component */}
+        <Route path="/login" component={LoginSignup} /> {/* Route for LoginSignup component */}
+      </Switch>
+    </Router>
   );
 }
 
