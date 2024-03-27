@@ -22,7 +22,11 @@ class NavBar extends Component{
             <div>
                 <ul id = "navbar">
                     <li><a href = "/home">Home</a></li>
+<<<<<<< HEAD
                     <li><a href = "/listing">Listing</a></li>
+=======
+                    <li><a href = "index.html">Listing</a></li>
+>>>>>>> main
                     <li><a href = "/about">About</a></li>
                     <li><a href = "/login">Login/SignUp</a></li>
                 </ul>

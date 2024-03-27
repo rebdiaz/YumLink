@@ -5,6 +5,7 @@ import Home from './components/Home/Home';
 import NavBar from './components/Navbar';
 
 const App = () => {
+
   return (
     <Router>
       <NavBar></NavBar>
