@@ -3,6 +3,10 @@ const Schema = mongoose.Schema
 const bcrypt = require('bcryptjs');
 
 const logSchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
     username: {
         type: String,
         required: true,

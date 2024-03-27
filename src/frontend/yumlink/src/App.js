@@ -19,7 +19,7 @@ function App() {
 
     const { data1 } = axios.post(
         "http://localhost:3001/signup",
-        {password: myPassword, username: myUsername},
+        {password: 'myPass223666667', username: 'user1234', name: 'Rebecca'},
         { withCredentials: true }
     );
 
