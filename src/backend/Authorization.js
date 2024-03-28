@@ -7,20 +7,20 @@ module.exports.Authorize = async (req, res, next) => {
     try {
         const { username, password } = req.body;
         if(!username || !password ){
-            return res.json({message:'All fields are required'})
+            return res.json({success: false, message:'All fields are required'})
         }
         const user = await User.findOne({ username });
         if(!user){
             //console.log('Bad1');
-            return res.json({message:'Incorrect credentials' })
+            return res.json({success: false, message:'Incorrect credentials' })
         }
         const auth = await bcrypt.compare(password,user.password)
         if (!auth) {
             //console.log('Bad2');
-            return res.json({message:'Incorrect credentials' })
+            return res.json({success: false, message:'Incorrect credentials' })
         }
         console.log('User logged in');
-        res.status(201).json({ message: "User logged in successfully" });
+        res.status(201).json({success: true, message: "User logged in successfully" });
         next()
     } catch (error) {
         console.error(error);
