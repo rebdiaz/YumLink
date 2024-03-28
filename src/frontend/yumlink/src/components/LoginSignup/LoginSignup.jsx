@@ -46,11 +46,11 @@ const LoginSignup = () => {
             );
             const { success, message } = data;
             if (success) {
-                console.log("User added");
+                //console.log("User added");
                 console.log(message);
                 history.push("/home");
             } else {
-                console.log("Error adding user!")
+                //console.log("Error adding user!")
                 console.log(message);
             }
         } catch (error) {
@@ -107,7 +107,7 @@ const LoginSignup = () => {
                 <div className="forgot-password">Lost Password? <span>Click Here!</span></div>
             )}
             <div className="submit-container">
-                
+
                 <div className={action === "Login" ? "submit gray" : "submit"} onClick={() => handleActionChange("Sign Up")}>Sign Up</div>
                 <div className={action === "Sign Up" ? "submit gray" : "submit"} onClick={() => handleActionChange("Login")}>Login</div>
             </div>
