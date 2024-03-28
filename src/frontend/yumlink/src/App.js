@@ -23,6 +23,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; // Im
 import LoginSignup from './components/LoginSignup/LoginSignup'; 
 import Home from './components/Home/Home'; 
 import NavBar from './components/Navbar';
+import Listings from './components/Listings/LIstings';
 
 const App = () => {
 
@@ -30,6 +31,7 @@ const App = () => {
     <Router>
       <NavBar></NavBar>
       <Switch>
+      <Route path="/listings" exact component={Listings} />
         <Route path="/home" component={Home} /> {/* Route for Home component */}
         <Route path="/login" component={LoginSignup} /> {/* Route for LoginSignup component */}
       </Switch>
