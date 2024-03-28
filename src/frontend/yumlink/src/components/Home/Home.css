@@ -1,13 +1,19 @@
-// Home.js
-import React from 'react';
-
-const Home = () => {
-  return (
-    <div>
-      <h1>Welcome to Our Website!</h1>
-      <p>This is the home page of our website.</p>
-    </div>
-  );
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  margin: auto;
+  margin-top: 200px;
+  width: 600px;
+  background: #4a4b4c;
+  padding-bottom: 30px;
+  border-radius: 10px; /* Adjust border radius as needed */
 }
 
-export default Home;
+.homeText {
+  color: #fff;
+  font-size: 48px;
+  font-weight: 700;
+}
+

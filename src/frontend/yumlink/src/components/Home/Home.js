@@ -1,13 +1,13 @@
-// Home.js
 import React from 'react';
+import './Home.css';
 
 const Home = () => {
   return (
-    <div>
-      <h1>Welcome to Our Website!</h1>
-      <p>This is the home page of our website.</p>
+    <div className="homeContainer">
+      <h1 className="homeText">Welcome to YumLink!</h1>
     </div>
   );
 }
 
 export default Home;
+
