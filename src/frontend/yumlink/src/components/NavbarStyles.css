@@ -2,7 +2,7 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: aquamarine;
+    background-color: #4a4b4c;
     padding: 20px 80px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 
@@ -29,7 +29,7 @@ nav{
 
 #navbar li a:hover,
 #navbar li a.active{
-    color: black;
+    color: #3ded97;
 }
 
 #navbar li a:hover::after,
@@ -37,7 +37,7 @@ nav{
     content: "";
     width: 30%;
     height: 2px;
-    background: black;
+    background: #3ded97;
     position:absolute;
     bottom: -4px;
     left: 20px; 

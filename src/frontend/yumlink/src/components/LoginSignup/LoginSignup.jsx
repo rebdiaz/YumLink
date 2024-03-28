@@ -5,6 +5,7 @@ import './LoginSignup.css'
 import user_icon from '../Assets/person.png'
 import email_icon from '../Assets/email.png'
 import password_icon from '../Assets/password.png'
+import axios from "axios";
 
 const LoginSignup = () => {
     const history = useHistory();
@@ -15,8 +16,13 @@ const LoginSignup = () => {
 
     const handleActionChange = (newAction) => {
         if (newAction === action) {
+            // If the form is valid, perform the corresponding action
             if (isValidForm()) {
-                history.push("/home");
+                if (action === "Sign Up") {
+                    handleSignup();
+                } else {
+                    handleLogin();
+                }
             }
         } else {
             setAction(newAction);
@@ -28,6 +34,48 @@ const LoginSignup = () => {
             return email.trim() !== "" && password.trim() !== "";
         } else {
             return name.trim() !== "" && email.trim() !== "" && password.trim() !== "";
+        }
+    };
+
+    const handleSignup = async () => {
+        try {
+            const { data } = await axios.post(
+                "http://localhost:3000/signup",
+                { password: password, username: email, name: name },
+                { withCredentials: true }
+            );
+            const { success, message } = data;
+            if (success) {
+                console.log("User added");
+                console.log(message);
+                history.push("/home");
+            } else {
+                console.log("Error adding user!")
+                console.log(message);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const handleLogin = async () => {
+        try {
+            const { data } = await axios.post(
+                "http://localhost:3000/login",
+                { username: email, password: password },
+                { withCredentials: true }
+            );
+            const { success, message } = data;
+            if (success) {
+                console.log("Logged in!");
+                console.log(message);
+                history.push("/home");
+            } else {
+                console.log("Error logging in!")
+                console.log(message);
+            }
+        } catch (error) {
+            console.log(error);
         }
     };
 
