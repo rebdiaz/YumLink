@@ -24,9 +24,16 @@ import LoginSignup from './components/LoginSignup/LoginSignup';
 import Home from './components/Home/Home'; 
 import NavBar from './components/Navbar';
 import Listings from './components/Listings/LIstings';
+//import axios from "axios";
 
 const App = () => {
-
+    // const { data1 } = axios.post(
+    //     "http://localhost:3001/createlisting",
+    //     {title: 'Chocolate Chip Cookies', pricePerUnit: 1.00, units: 10, breakfast: false, lunch: false, dinner: false, dessert: true, beverage: false, snack: true,
+    //         vegetarian: true, vegan: false, other: '', cuisine: 'American', dairyAllergy: true, glutenAllergy: true, shellfishAllergy: false,
+    //         nutAllergy: false, soyAllergy: false, fishAllergy: false, otherAllergy: ''},
+    //     { withCredentials: true }
+    // );
   return (
     <Router>
       <NavBar></NavBar>
