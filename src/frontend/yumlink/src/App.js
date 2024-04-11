@@ -24,7 +24,7 @@ import LoginSignup from './components/LoginSignup/LoginSignup';
 import Home from './components/Home/Home'; 
 import NavBar from './components/Navbar';
 import Listings from './components/Listings/LIstings';
-
+import ListingPopUp from './components/ListingPopUp/ListingPopUp'
 const App = () => {
 
   return (
@@ -34,6 +34,7 @@ const App = () => {
       <Route path="/listings" exact component={Listings} />
         <Route path="/home" component={Home} /> {/* Route for Home component */}
         <Route path="/login" component={LoginSignup} /> {/* Route for LoginSignup component */}
+        <Route path="/create" component={ListingPopUp}></Route>
       </Switch>
     </Router>
   );
