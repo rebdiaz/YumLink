@@ -25,7 +25,7 @@ import Home from './components/Home/Home';
 import NavBar from './components/Navbar';
 import Listings from './components/Listings/LIstings';
 //import axios from "axios";
-
+import ListingPopUp from './components/ListingPopUp/ListingPopUp'
 const App = () => {
     // const { data1 } = axios.post(
     //     "http://localhost:3001/createlisting",
@@ -41,6 +41,7 @@ const App = () => {
       <Route path="/listings" exact component={Listings} />
         <Route path="/home" component={Home} /> {/* Route for Home component */}
         <Route path="/login" component={LoginSignup} /> {/* Route for LoginSignup component */}
+        <Route path="/create" component={ListingPopUp}></Route>
       </Switch>
     </Router>
   );

@@ -4,7 +4,7 @@
     margin: auto;
     margin-top: 200px;
     width: 600px;
-    background: #fff;
+    background: #4a4b4c;
     padding-bottom: 30px;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .text{
-    color: #3ded97;
+    color: white;
     font-size: 48px;
     font-weight: 700;
 }
@@ -26,7 +26,7 @@
 .underline{
     width: 61px;
     height: 6px;
-    background: #3ded97;
+    background: white;
     border-radius: 9px;
 }
 
@@ -64,7 +64,7 @@
 .forgot-password{
     padding-left: 62px;
     margin-top: 27px;
-    color: #797979;
+    color: white;
     font-size: 18px;
 }
 
