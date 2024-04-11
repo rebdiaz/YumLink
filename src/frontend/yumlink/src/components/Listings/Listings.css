@@ -9,6 +9,7 @@
   .Listings .menuTitle {
     font-family: Montserrat;
     font-size: 60px;
+    color:  black;
   }
   
   .menuList {
@@ -27,7 +28,7 @@
     height: 350px;
     margin: 20px;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-    background-color: white;
+    background-color: #f3f3d4;
   }
   .menuItem:hover {
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.5);
