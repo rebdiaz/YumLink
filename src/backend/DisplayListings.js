@@ -1,4 +1,4 @@
-const Listing = require("./Listings");
+const Listing = require("./ListingSchema");
 
 
 module.exports.DisplayListings = async (req, res, next) => {
