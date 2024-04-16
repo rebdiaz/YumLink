@@ -32,32 +32,3 @@
 /* Hide the radio buttons */
 /* Hide the radio buttons */
 /* Hide the radio buttons */
-.rating input[type="radio"] {
-    display: none;
-  }
-  
-  /* Style the stars using pseudo-elements */
-  .rating label {
-    cursor: pointer;
-    font-size: 24px; /* Adjust the size of the stars */
-    color: #ccc; /* Color of empty stars */
-    margin-right: 5px; /* Adjust the spacing between stars */
-    display: inline-block; /* Display stars in a row */
-  }
-  
-  .rating label:before {
-    content: "\2606"; /* Unicode for empty star */
-  }
-  
-  /* When the radio button is checked, fill the stars */
-  .rating input[type="radio"]:checked ~ label:before {
-    content: "\2605"; /* Unicode for filled star */
-  }
-  
-  /* Change color of stars on hover */
-  .rating label:hover ~ label:before,
-  .rating label:hover:before {
-    color: #ffcc00; /* Color of filled stars */
-  }
-  
-  
