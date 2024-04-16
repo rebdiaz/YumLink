@@ -4,13 +4,13 @@ import LoginSignup from './components/LoginSignup/LoginSignup';
 import Home from './components/Home/Home'; 
 import NavBar from './components/Navbar';
 import Listings from './components/Listings/LIstings';
-//import axios from "axios";
 import ListingPopUp from './components/ListingPopUp/ListingPopUp'
-
+import axios from "axios";
 import View from './components/View/View'
 
 
 const App = () => {
+
   const appStyle = {
     backgroundImage: `url("https://t3.ftcdn.net/jpg/06/29/73/36/360_F_629733635_4eo0wfZfYC6u1IKn3Fb3uFMWQD87n6DD.jpg")`, // Set background image URL here
     backgroundSize: 'cover', // Ensure the background image covers the entire container
@@ -25,6 +25,7 @@ const App = () => {
     //         nutAllergy: false, soyAllergy: false, fishAllergy: false, otherAllergy: ''},
     //     { withCredentials: true }
     // );
+
   return (
     <Router>
       <div style={appStyle}>
