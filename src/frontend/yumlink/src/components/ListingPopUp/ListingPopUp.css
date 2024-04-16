@@ -20,6 +20,7 @@
   .form-group input[type="text"],
   .form-group input[type="checkbox"] {
     margin-right: 10px;
+    
   }
   
   .form-group input[type="text"] {
@@ -42,4 +43,31 @@
   button:hover {
     background-color: #4a4b4c;
   }
+  
+  .checkbox-container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .checkbox-group-vertical {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .checkbox-group-horizontal {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .checkbox-group-vertical label,
+  .checkbox-group-horizontal label {
+    margin-right: 20px; /* Adjust spacing between checkboxes */
+  }
+
+  /* Existing styles */
+
+
+
   
