@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './View.css';
+import Rating from './Rating'; // Adjust the path as per your project structure
+
 
 function View() {
   const [rating, setRating] = useState(0);
@@ -34,14 +36,9 @@ function View() {
         <label htmlFor="rating">Rating:</label>
         {/* Rating input */}
         <div className="rating">
-          {[...Array(5)].map((_, index) => (
-            <label key={index}>
-              <input type="radio" name="rating" value={index + 1} onChange={() => handleRatingChange(index + 1)} checked={rating === index + 1} />
-              ★
-              
-            </label>
-          ))}
-        </div>
+        <Rating />
+</div>
+
       </div>
     </div>
   );
