@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ListingPopUp.css';
+import axios from "axios";
 
 function ListingForm() {
   const [formData, setFormData] = useState({
@@ -33,10 +34,99 @@ function ListingForm() {
     // Validation: Check if title, pricePerUnit, numberOfUnits, and cuisine are not empty
     if (formData.title.trim() !== '' && formData.pricePerUnit.trim() !== '' && formData.numberOfUnits.trim() !== '' && formData.cuisine.trim() !== '' && formData.venmo.trim() !== '') {
       // Here you would typically handle form submission, like sending data to a server
+      let breakfast = false;
+      let lunch = false;
+      let dinner = false;
+      let snack = false;
+      let dessert = false;
+      let beverage = false;
+      let vegetarian = false;
+      let vegan = false;
+      let other = false;
+      if(formData.categories.findIndex((element) => element === 'Breakfast') !== -1){
+        breakfast = true;
+      }
+      if(formData.categories.findIndex((element) => element === 'Lunch') !== -1){
+        lunch = true;
+      }
+      if(formData.categories.findIndex((element) => element === 'Dinner') !== -1){
+        dinner = true;
+      }
+      if(formData.categories.findIndex((element) => element === 'Snack') !== -1){
+        snack = true;
+      }
+      if(formData.categories.findIndex((element) => element === 'Dessert') !== -1){
+        dessert = true;
+      }
+      if(formData.categories.findIndex((element) => element === 'Beverage') !== -1){
+        beverage = true;
+      }
+      if(formData.categories.findIndex((element) => element === 'Vegetarian') !== -1){
+        vegetarian = true;
+      }
+      if(formData.categories.findIndex((element) => element === 'Vegan') !== -1){
+        vegan = true;
+      }
+      if(formData.categories.findIndex((element) => element === 'Other') !== -1){
+        other = true;
+      }
+      let dairy = false;
+      let nut = false;
+      let shellfish = false;
+      let fish = false;
+      let soy = false;
+      let wheat = false;
+      let otherA = false;
+      if(formData.allergies.findIndex((element) => element === 'Dairy') !== -1){
+        dairy = true;
+      }
+      if(formData.allergies.findIndex((element) => element === 'Nut') !== -1){
+        nut = true;
+      }
+      if(formData.allergies.findIndex((element) => element === 'Shellfish') !== -1){
+        shellfish = true;
+      }
+      if(formData.allergies.findIndex((element) => element === 'Fish') !== -1){
+        fish = true;
+      }
+      if(formData.allergies.findIndex((element) => element === 'Soy') !== -1){
+        soy = true;
+      }
+      if(formData.allergies.findIndex((element) => element === 'Wheat') !== -1){
+        wheat = true;
+      }
+      if(formData.allergies.findIndex((element) => element === 'Other') !== -1){
+        otherA = true;
+      }
+      handleCreate(formData.title.trim(), formData.pricePerUnit.trim(), formData.numberOfUnits.trim(), breakfast, lunch, dinner,
+          snack, dessert, beverage, vegetarian, vegan, other, formData.cuisine.trim(), dairy, nut, shellfish, fish, soy, wheat, otherA,
+          formData.venmo.trim());
       console.log(formData);
       handleClick();
     } else {
       alert('Please fill in all required fields.'); // You can customize this alert message
+    }
+  };
+
+  const handleCreate = async (title, pricePerUnit, units, breakfast, lunch, dinner, snack, dessert, beverage, vegetarian, vegan, other, cuisine, dairy, nut, shellfish, fish, soy, wheat, otherA, venmo) => {
+    try{
+      const { data } = axios.post(
+          "http://localhost:3001/createlisting",
+          {title: title, pricePerUnit: pricePerUnit, units: units, breakfast: breakfast, lunch: lunch, dinner: dinner, dessert: dessert, beverage: beverage, snack: snack,
+            vegetarian: vegetarian, vegan: vegan, other: other, cuisine: cuisine, dairyAllergy: dairy, glutenAllergy: wheat, shellfishAllergy: shellfish,
+            nutAllergy: nut, soyAllergy: soy, fishAllergy: fish, otherAllergy: otherA, username: "reb", venmo: venmo},
+          { withCredentials: true }
+      );
+      const { success, message } = data;
+      if (success) {
+        console.log("Listing added");
+        //console.log(message);
+      } else {
+        console.log("Error!")
+        //console.log(message);
+      }
+    } catch (error) {
+      console.log("error");
     }
   };
 

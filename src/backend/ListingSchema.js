@@ -7,7 +7,7 @@ const listingSchema = new Schema({
         required: true
     },
     pricePerUnit: {
-        type: Number,
+        type: String,
         required: true,
     },
     units: {
@@ -83,6 +83,10 @@ const listingSchema = new Schema({
         required: false
     },
     username: {
+        type: String,
+        required : false
+    },
+    venmo: {
         type: String,
         required : true
     }
