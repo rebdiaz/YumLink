@@ -81,8 +81,8 @@ function Menu() {
             <ListingButton onClick={handleListingsClick}/> {/* Add the Listings button */}
             <SortButton onClick={handleSortClick}/>
             <div className="menuList">
-                {MenuList.map((menuItem, key) => {
-                    return <MenuItem
+                {MenuList.map((menuItem, key) => (
+                    <MenuItem
                         key={key}
                         image={menuItem.image}
                         name={posts.length === 0 ? "Loading" : posts.lists.at(12).title}
@@ -90,7 +90,7 @@ function Menu() {
                         Chef={posts.length === 0  ? "Loading" : posts.lists.at(12).username}
                         units={posts.length === 0  ? "Loading" : posts.lists.at(12).units}
                     />
-                })}
+                ))}
             </div>
         </div>
     );
