@@ -82,11 +82,31 @@ const listingSchema = new Schema({
         type: String,
         required: false
     },
-    username: {
-        type: String,
-        required : true
+    // username: {
+    //     type: String,
+    //     required : true
+    // },
+    numUnits: {
+        type: Number,
+        required: true
+    },
+    // ratings: {
+    //     type: Array,
+    //     default: []
+    // },
+    ratings: [{
+        type: Number
+    }],
+    seller: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Login'
+    },
+    averageRating: {
+        type: Number,
+        default: 0
     }
 })
 
-
-module.exports = mongoose.model("Listings", listingSchema)
+const listings = mongoose.model("Listings", listingSchema);
+module.exports = listings;
+// module.exports = mongoose.model("Listings", listingSchema)
