@@ -90,6 +90,16 @@ function Menu() {
                         Chef={posts.length === 0  ? "Loading" : posts.lists.at(12).username}
                         units={posts.length === 0  ? "Loading" : posts.lists.at(12).units}
                     />
+                ))},
+                {MenuList.map((menuItem, key) => (
+                    <MenuItem
+                        key={key}
+                        image={menuItem.image}
+                        name={posts.length === 0 ? "Loading" : posts.lists.at(11).title}
+                        price={posts.length === 0  ? "Loading" : posts.lists.at(11).pricePerUnit}
+                        Chef={posts.length === 0  ? "Loading" : posts.lists.at(11).username}
+                        units={posts.length === 0  ? "Loading" : posts.lists.at(11).units}
+                    />
                 ))}
             </div>
         </div>
