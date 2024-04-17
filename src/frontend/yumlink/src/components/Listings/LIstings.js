@@ -16,15 +16,8 @@ import axios from "axios";
 //     { withCredentials: true }
 // );
 // const {success, message, listings} = data;
-const MenuList = [
-  {
-    name: 'Pepperoni Pizza',
-    image: Pepperoni,
-    price: 15.99,
-    Chef: 'Anshil', 
-    units: 4,
-    venmo: 'Anshil'
-  },
+const MenuImages = [
+  Pepperoni
 ];
 function MenuItem({ image, name, price, Chef, venmo, units }) {
 
@@ -53,7 +46,10 @@ function Menu() {
         // Handle sort button click logic here
         // You can implement sorting functionality or redirect to a sorting page
     };
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState({
+        lists: []
+    });
+    //posts.
     async function fetchData() {
         try {
             const res = await axios.get("http://localhost:3001/listings",{
@@ -81,24 +77,14 @@ function Menu() {
             <ListingButton onClick={handleListingsClick}/> {/* Add the Listings button */}
             <SortButton onClick={handleSortClick}/>
             <div className="menuList">
-                {MenuList.map((menuItem, key) => (
+                {posts.lists.map((post, index) => (
                     <MenuItem
-                        key={key}
-                        image={menuItem.image}
-                        name={posts.length === 0 ? "Loading" : posts.lists.at(12).title}
-                        price={posts.length === 0  ? "Loading" : posts.lists.at(12).pricePerUnit}
-                        Chef={posts.length === 0  ? "Loading" : posts.lists.at(12).username}
-                        units={posts.length === 0  ? "Loading" : posts.lists.at(12).units}
-                    />
-                ))},
-                {MenuList.map((menuItem, key) => (
-                    <MenuItem
-                        key={key}
-                        image={menuItem.image}
-                        name={posts.length === 0 ? "Loading" : posts.lists.at(11).title}
-                        price={posts.length === 0  ? "Loading" : posts.lists.at(11).pricePerUnit}
-                        Chef={posts.length === 0  ? "Loading" : posts.lists.at(11).username}
-                        units={posts.length === 0  ? "Loading" : posts.lists.at(11).units}
+                        key={index}
+                        image={MenuImages.at(0)}
+                        name={posts.length === 0 ? "Loading" : post.title}
+                        price={posts.length === 0 ? "Loading" : post.pricePerUnit}
+                        Chef={posts.length === 0 ? "Loading" : post.username}
+                        units={posts.length === 0 ? "Loading" : post.units}
                     />
                 ))}
             </div>
