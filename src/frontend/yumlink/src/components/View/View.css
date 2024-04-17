@@ -1,0 +1,34 @@
+.view-form {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f3f3d4;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Add styling for buttons if needed */
+/* Hide the radio buttons */
+/* Hide the radio buttons */
+/* Hide the radio buttons */

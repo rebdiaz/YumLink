@@ -13,6 +13,7 @@ const LoginSignup = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loggedInUserName, setLoggedInUserName] = useState(""); // State to store logged-in user's name
 
     const handleActionChange = (newAction) => {
         if (newAction === action) {
@@ -65,10 +66,11 @@ const LoginSignup = () => {
                 { username: email, password: password },
                 { withCredentials: true }
             );
-            const { success, message } = data;
+            const { success, message, name } = data; // Assuming the API returns the user's name
             if (success) {
                 console.log("Logged in!");
                 console.log(message);
+                setLoggedInUserName(name); // Store logged-in user's name
                 history.push("/home");
             } else {
                 console.log("Error logging in!")
@@ -107,7 +109,6 @@ const LoginSignup = () => {
                 <div className="forgot-password">Lost Password? <span>Click Here!</span></div>
             )}
             <div className="submit-container">
-
                 <div className={action === "Login" ? "submit gray" : "submit"} onClick={() => handleActionChange("Sign Up")}>Sign Up</div>
                 <div className={action === "Sign Up" ? "submit gray" : "submit"} onClick={() => handleActionChange("Login")}>Login</div>
             </div>
