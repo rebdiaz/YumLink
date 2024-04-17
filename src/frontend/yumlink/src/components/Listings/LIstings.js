@@ -54,23 +54,26 @@ function Menu() {
         // You can implement sorting functionality or redirect to a sorting page
     };
     const [posts, setPosts] = useState([]);
-    useEffect( () => {
-        async function fetchData() {
-            try {
-                const res = await axios.get("http://localhost:3001/listings",{
-                        withCredentials: true,
-                        params: {
-                            sorting: false
-                        }
-                    });
-                setPosts(res.data);
-            } catch (err) {
-                console.log(err);
-            }
+    async function fetchData() {
+        try {
+            const res = await axios.get("http://localhost:3001/listings",{
+                withCredentials: true,
+                // params: {
+                //     sorting: false
+                // }
+            });
+            setPosts(await res.data);
+            // console.log(res.data);
+            // console.log(posts.lists.at(0).title);
+        } catch (err) {
+            console.log(err);
         }
-        fetchData();
-    }, []);
-    console.log(posts.lists.at(0).title);
+    }
+    useEffect( () => {
+        fetchData().then(r => console.log("fetched"));
+    }, [posts]);
+    //console.log(posts);
+    //console.log(posts.lists.at(0).title);
 
     return (
         <div className="Listings">
@@ -78,16 +81,16 @@ function Menu() {
             <ListingButton onClick={handleListingsClick}/> {/* Add the Listings button */}
             <SortButton onClick={handleSortClick}/>
             <div className="menuList">
-                {MenuList.map((menuItem, key) => (
-                    <MenuItem
+                {MenuList.map((menuItem, key) => {
+                    return <MenuItem
                         key={key}
                         image={menuItem.image}
-                        name={posts.lists.at(12).title}
-                        price={posts.lists.at(12).pricePerUnit}
-                        Chef={posts.lists.at(12).username}
-                        units={posts.lists.at(12).units}
+                        name={posts.length === 0 ? "Loading" : posts.lists.at(12).title}
+                        price={posts.length === 0  ? "Loading" : posts.lists.at(12).pricePerUnit}
+                        Chef={posts.length === 0  ? "Loading" : posts.lists.at(12).username}
+                        units={posts.length === 0  ? "Loading" : posts.lists.at(12).units}
                     />
-                ))}
+                })}
             </div>
         </div>
     );
