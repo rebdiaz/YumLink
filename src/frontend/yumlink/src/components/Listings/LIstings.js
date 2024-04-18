@@ -19,10 +19,11 @@ import axios from "axios";
 const MenuImages = [
   Pepperoni
 ];
-function MenuItem({ image, name, price, Chef, venmo, units }) {
+function MenuItem({ image, name, price, Chef, venmo, units, id }) {
 
   const handleClick = () => {
-    window.location.href = '/view';
+      console.log(id);
+    //window.location.href = '/view';
   };
 
   return (
@@ -85,6 +86,7 @@ function Menu() {
                         price={posts.length === 0 ? "Loading" : post.pricePerUnit}
                         Chef={posts.length === 0 ? "Loading" : post.username}
                         units={posts.length === 0 ? "Loading" : post.units}
+                        id={posts.length === 0 ? "Loading" : post._id}
                     />
                 ))}
             </div>
