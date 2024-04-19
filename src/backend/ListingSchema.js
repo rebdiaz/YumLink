@@ -82,14 +82,19 @@ const listingSchema = new Schema({
         type: String,
         required: false
     },
-    // username: {
-    //     type: String,
-    //     required : true
-    // },
-    numUnits: {
-        type: Number,
-        required: true
+    username: {
+        type: String,
+        required : false
     },
+    venmo:
+        {
+            type: String,
+            required: true
+        },
+    // numUnits: {
+    //     type: Number,
+    //     required: true
+    // },
     // ratings: {
     //     type: Array,
     //     default: []
@@ -97,10 +102,10 @@ const listingSchema = new Schema({
     ratings: [{
         type: Number
     }],
-    seller: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Login'
-    },
+    // seller: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Login'
+    // },
     averageRating: {
         type: Number,
         default: 0

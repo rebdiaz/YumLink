@@ -2,6 +2,7 @@ const Listings = require('./ListingSchema'); // Import the Listing model
 
 module.exports.updateDishRating = async (req, res, next) => {
 // async function updateDishRating(dishId, newRating) {
+    //async (req, res, next)
     //let sum;
     const {listingID, newRating} = req.body;
     try {
@@ -10,7 +11,7 @@ module.exports.updateDishRating = async (req, res, next) => {
 
         // Check if the dish exists
         if (!listing) {
-            throw new Error('Listing not found');
+            return res.status(404).json({ success: false, message: 'Listing not found' });
         }
 
         // Add the new rating to the ratings array
@@ -19,11 +20,11 @@ module.exports.updateDishRating = async (req, res, next) => {
         // Calculate the average rating
         const ratings = listing.ratings;
         const totalRatings = ratings.length;
-        var ratingSum = 0;
-        var averageRating = 0;
+        let ratingSum = 0;
+        let averageRating = 0;
         if(totalRatings>0)
         {
-            for (let i = 0; i < ratings; i++) {
+            for (let i = 0; i < totalRatings; i++) {
                 ratingSum+=ratings[i];
             }
             averageRating = ratingSum / totalRatings;
@@ -37,9 +38,10 @@ module.exports.updateDishRating = async (req, res, next) => {
         // Save the updated dish document
         await listing.save();
         res.status(201).json({success: true, message: "Rating updated successfully" });
-        next()
+        //next()
     } catch (error) {
         console.error('Error updating dish rating:', error.message);
+        return res.status(500).json({ success: false, message: 'Failed to update dish rating' });
     }
 }
 
