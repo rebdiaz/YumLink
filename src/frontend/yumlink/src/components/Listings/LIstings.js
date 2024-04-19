@@ -42,7 +42,8 @@ const MenuImages = [
 function MenuItem({ image, name, price, Chef, venmo, units, id }) {
 
   const handleClick = () => {
-    window.location.href = '/view?id=${id}';
+      //console.log(id)
+      window.location.href = `/view?id=${id}`;
   };
 
   return (
