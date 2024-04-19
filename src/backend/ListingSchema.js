@@ -89,6 +89,13 @@ const listingSchema = new Schema({
     venmo: {
         type: String,
         required : true
+    },
+    rating: [{
+        type: Number
+    }],
+    averageRating: {
+        type: Number,
+        default: 0
     }
 })
 
