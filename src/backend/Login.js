@@ -15,6 +15,14 @@ const logSchema = new Schema({
     password: {
         type: String,
         required: true
+    },
+    sellerRating: {
+        type: Number,
+        default: 0
+    },
+    totalListings: {
+        type: Number,
+        default: 0
     }
 })
 

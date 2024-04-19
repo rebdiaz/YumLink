@@ -32,5 +32,5 @@ const Rate = () => {
         </Container>
     );
 };
- 
+
 export default Rate;

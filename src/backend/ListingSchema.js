@@ -7,7 +7,7 @@ const listingSchema = new Schema({
         required: true
     },
     pricePerUnit: {
-        type: String,
+        type: Number,
         required: true,
     },
     units: {
@@ -99,5 +99,6 @@ const listingSchema = new Schema({
     }
 })
 
-
-module.exports = mongoose.model("Listings", listingSchema)
+const listings = mongoose.model("Listings", listingSchema);
+module.exports = listings;
+// module.exports = mongoose.model("Listings", listingSchema)
