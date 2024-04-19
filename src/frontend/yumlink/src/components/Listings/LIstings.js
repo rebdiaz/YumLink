@@ -3,6 +3,16 @@
 import React, {useEffect, useState} from 'react';
 import './Listings.css';
 import Pepperoni from '../Assets/pepperoni.jpg';
+import SugarCookies from '../Assets/sugarcookies.jpeg';
+import Pie from '../Assets/pie.jpeg';
+import Shrimp from '../Assets/shrimptacos.jpeg';
+import Beef from '../Assets/beeftacos.jpeg';
+import Ravioli from '../Assets/ravioli.jpeg';
+import Salmon from '../Assets/salmon.jpeg';
+import Lemonade from '../Assets/lemonade.jpeg';
+import Burger from '../Assets/burger.jpeg';
+import Cheese from '../Assets/cheese.jpeg';
+import Fish from '../Assets/fish.jpeg';
 import ListingButton from '../ListingButton/ListingButton.js';
 import SortButton from '../SortButton/SortButton.js';
 import ListingForm from '../ListingPopUp/ListingPopUp.js'; // Import the new modal component
@@ -17,13 +27,22 @@ import axios from "axios";
 // );
 // const {success, message, listings} = data;
 const MenuImages = [
-  Pepperoni
+    SugarCookies,
+    Pepperoni,
+    Pie,
+    Shrimp,
+    Beef,
+    Ravioli,
+    Salmon,
+    Lemonade,
+    Burger,
+    Cheese,
+    Fish
 ];
 function MenuItem({ image, name, price, Chef, venmo, units, id }) {
 
   const handleClick = () => {
-      console.log(id);
-      window.location.href = `/view?id=${id}`;
+    window.location.href = '/view?id=${id}';
   };
 
   return (
@@ -81,7 +100,7 @@ function Menu() {
                 {posts.lists.map((post, index) => (
                     <MenuItem
                         key={index}
-                        image={MenuImages.at(0)}
+                        image={MenuImages.at(index % MenuImages.length)}
                         name={posts.length === 0 ? "Loading" : post.title}
                         price={posts.length === 0 ? "Loading" : post.pricePerUnit}
                         Chef={posts.length === 0 ? "Loading" : post.username}

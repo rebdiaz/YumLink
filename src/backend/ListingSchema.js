@@ -86,26 +86,13 @@ const listingSchema = new Schema({
         type: String,
         required : false
     },
-    venmo:
-        {
-            type: String,
-            required: true
-        },
-    // numUnits: {
-    //     type: Number,
-    //     required: true
-    // },
-    // ratings: {
-    //     type: Array,
-    //     default: []
-    // },
-    ratings: [{
+    venmo: {
+        type: String,
+        required : true
+    },
+    rating: [{
         type: Number
     }],
-    // seller: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Login'
-    // },
     averageRating: {
         type: Number,
         default: 0
