@@ -4,9 +4,7 @@ import LoginSignup from './components/LoginSignup/LoginSignup';
 import Home from './components/Home/Home'; 
 import NavBar from './components/Navbar';
 import Listings from './components/Listings/LIstings';
-//import axios from "axios";
 import ListingPopUp from './components/ListingPopUp/ListingPopUp'
-
 import View from './components/View/View'
 
 

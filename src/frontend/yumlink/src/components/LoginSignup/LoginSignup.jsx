@@ -49,6 +49,7 @@ const LoginSignup = () => {
             if (success) {
                 //console.log("User added");
                 console.log(message);
+                localStorage.setItem("loggedInUserName", name);
                 history.push("/home");
             } else {
                 //console.log("Error adding user!")
@@ -71,6 +72,7 @@ const LoginSignup = () => {
                 console.log("Logged in!");
                 console.log(message);
                 setLoggedInUserName(name); // Store logged-in user's name
+                localStorage.setItem("loggedInUserName", name);
                 history.push("/home");
             } else {
                 console.log("Error logging in!")

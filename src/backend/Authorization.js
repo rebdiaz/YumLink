@@ -20,7 +20,7 @@ module.exports.Authorize = async (req, res, next) => {
             return res.json({success: false, message:'Incorrect credentials' })
         }
         console.log('User logged in');
-        res.status(201).json({success: true, message: "User logged in successfully" });
+        res.status(201).json({success: true, message: "User logged in successfully", name: user.name});
         next()
     } catch (error) {
         console.error(error);

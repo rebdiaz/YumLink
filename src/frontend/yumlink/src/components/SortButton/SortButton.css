@@ -1,12 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 .sortButton {
-    background-color: #648448;
+    background-color: #6E7B8B;
     color: white;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
+    font-family: "Montserrat";
     cursor: pointer;
     border-radius: 5px;
     margin-left: 75%;
+    margin-top: 20px;
   }
   
   .sortButton:hover {

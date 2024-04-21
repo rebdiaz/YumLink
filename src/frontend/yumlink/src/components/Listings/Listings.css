@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
 .Listings {
     width: 100%;
     height: auto;
@@ -9,7 +13,9 @@
   .Listings .menuTitle {
    
     font-size: 60px;
-    color:  black;
+    color:  #535945;
+    font-family: 'indie flower', cursive;
+    font-weight: 550;
   }
   
   .menuList {
@@ -28,7 +34,9 @@
     height: 350px;
     margin: 20px;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-    background-color: #f3f3d4;
+    background-color: #F8F4ED;
+    font-family: 'Montserrat', sans-serif;
+    color: #535945;
   }
   .menuItem:hover {
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.5);

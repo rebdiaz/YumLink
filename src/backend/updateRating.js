@@ -15,10 +15,10 @@ module.exports.updateDishRating = async (req, res, next) => {
         }
 
         // Add the new rating to the ratings array
-        listing.ratings.push(newRating);
+        listing.rating.push(newRating);
 
         // Calculate the average rating
-        const ratings = listing.ratings;
+        const ratings = listing.rating;
         const totalRatings = ratings.length;
         let ratingSum = 0;
         let averageRating = 0;
@@ -37,6 +37,7 @@ module.exports.updateDishRating = async (req, res, next) => {
 
         // Save the updated dish document
         await listing.save();
+        console.log("Listing's average rating:", listing.averageRating);
         res.status(201).json({success: true, message: "Rating updated successfully" });
         //next()
     } catch (error) {

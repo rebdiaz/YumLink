@@ -7,13 +7,15 @@ import Rating from './Rating'; // Adjust the path as per your project structure
 function View() {
     const location = useLocation();
     const [listingProperties, setListingProperties] = useState(null);
-    const [ratingg, setRating] = useState(0);
+    const [listID, setlistID] = useState(null);
+    //const [ratingg, setRating] = useState(0);
 
     useEffect(() => {
         const fetchListingProperties = async () => {
             try {
                 const searchParams = new URLSearchParams(location.search);
                 const id = searchParams.get('id');
+                setlistID(id);
                 console.log(id);
                 console.log('API URL:', `http://localhost:3001/getListingInfo?id=${id}`);
                 const response = await axios.get(`http://localhost:3001/getListingInfo?id=${id}`);
@@ -27,9 +29,9 @@ function View() {
         fetchListingProperties();
     }, [location]);
 
-    const handleRatingChange = (value) => {
-        setRating(value);
-    };
+    // const handleRatingChange = (value) => {
+    //     setRating(value);
+    // };
 
     if (!listingProperties) {
         return <div>Loading...</div>;
@@ -60,11 +62,13 @@ function View() {
                 <input type="text" id="venmo" name="venmo" value={venmo} readOnly />
             </div>
             <div className="form-group">
-                <label htmlFor="rating">Rating:</label>
+                <label htmlFor="rating">Rating: {rating}/5</label>
+                <p>Click on the stars to rate this item!</p>
                 {/* Rating input */}
                 <div className="rating">
-                    <Rating />
+                    <Rating id={listID}/>
                 </div>
+
             </div>
         </div>
     );

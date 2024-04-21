@@ -1,19 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
 .homeContainer {
   display: flex;
   flex-direction: column;
   justify-content: center; /* Center vertically */
   align-items: center; /* Center horizontally */
   margin: auto;
-  margin-top: 200px;
+  margin-top: 150px;
   width: 600px;
-  background: #4a4b4c;
+  background: #F8F4ED;
   padding-bottom: 30px;
-  border-radius: 10px; /* Adjust border radius as needed */
+  border-radius: 15px; /* Adjust border radius as needed */
 }
 
 .homeText {
-  color: #fff;
+  color: #535945;
   font-size: 48px;
-  font-weight: 700;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 40px;
+  font-family: 'indie flower', cursive;
 }
 

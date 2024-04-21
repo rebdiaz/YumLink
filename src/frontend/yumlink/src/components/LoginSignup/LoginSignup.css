@@ -2,10 +2,11 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    margin-top: 200px;
+    margin-top: 50px;
     width: 600px;
-    background: #4a4b4c;
-    padding-bottom: 30px;
+    background: #F8F4ED;
+    padding-bottom: 0px;
+    border-radius: 15px;
 }
 
 .header{
@@ -18,7 +19,7 @@
 }
 
 .text{
-    color: white;
+    color: #535945;
     font-size: 48px;
     font-weight: 700;
 }
@@ -26,8 +27,9 @@
 .underline{
     width: 61px;
     height: 6px;
-    background: white;
+    background: #535945;
     border-radius: 9px;
+    margin-top: 10px;
 }
 
 .inputs{
@@ -64,12 +66,12 @@
 .forgot-password{
     padding-left: 62px;
     margin-top: 27px;
-    color: white;
+    color: #535945;
     font-size: 18px;
 }
 
 .forgot-password span{
-    color: #3ded97;
+    color: #214559;
     cursor: pointer;
 }
 
@@ -86,7 +88,7 @@
     width: 220px;
     height: 49px;
     color: #fff;
-    background: #3ded97;
+    background: #535945;
     border-radius: 50px;
     font-size: 19px;
     font-weight: 700;
