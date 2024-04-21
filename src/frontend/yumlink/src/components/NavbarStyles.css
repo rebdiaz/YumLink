@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #4a4b4c;
+    background-color: #535945;
     padding: 20px 80px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 
@@ -22,9 +24,11 @@ nav{
 #navbar li a{
     text-decoration: none;
     font-size: 1.3rem;
-    font-weight: 600;
+
     color: white;
     transition: 0.3s ease-in-out;
+    font-family: 'Montserrat';
+    font-weight: 400;
 }
 
 #navbar li a:hover,
