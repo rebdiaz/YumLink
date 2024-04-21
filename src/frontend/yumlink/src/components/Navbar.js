@@ -2,7 +2,7 @@ import { Component } from "react";
 import "./NavbarStyles.css";
 
 // Import your logo PNG file
-import logoImage from './Assets/yumlink logo.png';
+import logoImage from './Assets/yumlinklogo.png';
 
 class NavBar extends Component {
     state = { clicked: false };
