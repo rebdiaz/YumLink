@@ -70,6 +70,23 @@ function Menu() {
     const [posts, setPosts] = useState({
         lists: []
     });
+    const [sortedPosts, setSortedPosts] = useState([]); // State to hold sorted posts
+    const [sortOrder, setSortOrder] = useState('asc'); // State to track sorting order
+
+
+    // Function to sort menu items by price
+    const sortByPrice = () => {
+        const sorted = [...posts.lists].sort((a, b) => {
+            if (sortOrder === 'asc') {
+                return a.pricePerUnit - b.pricePerUnit;
+            } else {
+                return b.pricePerUnit - a.pricePerUnit;
+            }
+        });
+        setSortedPosts(sorted);
+        setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc'); // Toggle sorting order
+    };
+
     //posts.
     async function fetchData() {
         try {
@@ -92,23 +109,29 @@ function Menu() {
     //console.log(posts);
     //console.log(posts.lists.at(0).title);
 
+        // Render sorted posts if sortedPosts is not empty, otherwise render unsorted posts
+        const renderPosts = () => {
+            const data = sortedPosts.length ? sortedPosts : posts.lists;
+            return data.map((post, index) => (
+                <MenuItem
+                    key={index}
+                    image={MenuImages.at(index % MenuImages.length)}
+                    name={post.title}
+                    price={post.pricePerUnit}
+                    Chef={post.username}
+                    units={post.units}
+                    id={post._id}
+                />
+            ));
+        };
+
     return (
         <div className="Listings">
             <h1 className="menuTitle">Menu</h1>
             <ListingButton onClick={handleListingsClick}/> {/* Add the Listings button */}
-            <SortButton onClick={handleSortClick}/>
+            <SortButton onClick={sortByPrice}/>
             <div className="menuList">
-                {posts.lists.map((post, index) => (
-                    <MenuItem
-                        key={index}
-                        image={MenuImages.at(index % MenuImages.length)}
-                        name={posts.length === 0 ? "Loading" : post.title}
-                        price={posts.length === 0 ? "Loading" : post.pricePerUnit}
-                        Chef={posts.length === 0 ? "Loading" : post.username}
-                        units={posts.length === 0 ? "Loading" : post.units}
-                        id={posts.length === 0 ? "Loading" : post._id}
-                    />
-                ))}
+            {renderPosts()}
             </div>
         </div>
     );
