@@ -1,24 +1,14 @@
-//import React, {useEffect, useState} from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'; // Import BrowserRouter, Route, Switch, and Redirect
 import LoginSignup from './components/LoginSignup/LoginSignup'; 
 import Home from './components/Home/Home'; 
 import NavBar from './components/Navbar';
 import Listings from './components/Listings/LIstings';
 import ListingPopUp from './components/ListingPopUp/ListingPopUp'
-//import axios from "axios";
 import View from './components/View/View'
 
 
 const App = () => {
-  // const[loggedInUserName, setLoggedInUserName] = useState("");
-  // useEffect(() => {
-  //   const storedUserName = localStorage.getItem('loggedInUserName');
-  //   if(storedUserName)
-  //   {
-  //     setLoggedInUserName(storedUserName);
-  //   }
-  // }, []);
-
   const appStyle = {
     backgroundImage: `url("https://t3.ftcdn.net/jpg/06/29/73/36/360_F_629733635_4eo0wfZfYC6u1IKn3Fb3uFMWQD87n6DD.jpg")`, // Set background image URL here
     backgroundSize: 'cover', // Ensure the background image covers the entire container
@@ -33,16 +23,13 @@ const App = () => {
     //         nutAllergy: false, soyAllergy: false, fishAllergy: false, otherAllergy: ''},
     //     { withCredentials: true }
     // );
-
   return (
     <Router>
       <div style={appStyle}>
         <NavBar />
         <Switch>
           <Route path="/listings" exact component={Listings} />
-          <Route path="/home">
-            <Home loggedInUserName />
-          </Route>
+          <Route path="/home" component={Home} />
           <Route path="/login" component={LoginSignup} />
           <Route path="/create" component={ListingPopUp} />
           <Route path="/view" component={View} />
