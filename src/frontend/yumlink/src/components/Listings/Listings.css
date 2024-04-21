@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
 .Listings {
     width: 100%;
     height: auto;
@@ -12,7 +14,8 @@
    
     font-size: 60px;
     color:  #535945;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'indie flower', cursive;
+    font-weight: 550;
   }
   
   .menuList {
