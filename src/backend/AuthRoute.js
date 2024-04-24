@@ -1,5 +1,6 @@
 // REFERENCES: https://www.freecodecamp.org/news/how-to-secure-your-mern-stack-application/
 
+//Destructuring assignments employed to export important functions from files
 const { Signup } = require("./SignUp");
 const { Authorize } = require("./Authorization");
 const {CreateListing} = require("./CreateListings");
@@ -10,6 +11,7 @@ const {updateDishRating} = require("./updateRating");
 const {returnProperties} = require("./listingProperties");
 const router = require("express").Router();
 
+//Routes defined to create the REST API
 router.post("/signup", Signup);
 router.post("/login", Authorize);
 router.post("/createlisting", CreateListing);

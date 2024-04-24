@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+//Schema defines the required properties of a listing entry
 const listingSchema = new Schema({
     title: {
         type: String,
@@ -14,6 +15,7 @@ const listingSchema = new Schema({
         type: String,
         required: true
     },
+    //properties to define the category of food:
     breakfast: {
         type: Boolean,
         required: true
@@ -50,10 +52,13 @@ const listingSchema = new Schema({
         type: String,
         required: false
     },
+
     cuisine: {
         type: String,
         required: true
     },
+
+    //properties to define allergens present:
     dairyAllergy: {
         type: Boolean,
         required: true
@@ -82,6 +87,8 @@ const listingSchema = new Schema({
         type: String,
         required: false
     },
+
+    //properties needed to tie a listing to its chef:
     username: {
         type: String,
         required : false
@@ -90,6 +97,7 @@ const listingSchema = new Schema({
         type: String,
         required : true
     },
+
     rating: [{
         type: Number
     }],

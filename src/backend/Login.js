@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const bcrypt = require('bcryptjs');
 
+//Schema defines a user's profile information
 const logSchema = new Schema({
     name: {
         type: String,
@@ -27,8 +28,10 @@ const logSchema = new Schema({
 })
 
 // FOLLOWING FUNCTION FROM https://www.freecodecamp.org/news/how-to-secure-your-mern-stack-application/#howtoimplementthebackend
+
+//bcrypt library hashes the password property using 14 salt rounds
 logSchema.pre("save", async function () {
-    this.password = await bcrypt.hash(this.password, 14); // 14 salt rounds
+    this.password = await bcrypt.hash(this.password, 14);
 });
 
 module.exports = mongoose.model("Login", logSchema)

@@ -4,6 +4,8 @@ import axios from 'axios';
 import './View.css';
 import Rating from './Rating'; // Adjust the path as per your project structure
 
+//reference for retrieving parameters: https://stackoverflow.com/questions/35352638/how-to-get-parameter-value-from-query-string
+
 function View() {
     const location = useLocation();
     const [listingProperties, setListingProperties] = useState(null);
@@ -16,8 +18,8 @@ function View() {
                 const searchParams = new URLSearchParams(location.search);
                 const id = searchParams.get('id');
                 setlistID(id);
-                console.log(id);
-                console.log('API URL:', `http://localhost:3001/getListingInfo?id=${id}`);
+                //console.log(id);
+                //console.log('API URL:', `http://localhost:3001/getListingInfo?id=${id}`);
                 const response = await axios.get(`http://localhost:3001/getListingInfo?id=${id}`);
                 //console.log('API Response:', response.data);
                 setListingProperties(response.data.data);
