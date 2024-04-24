@@ -18,6 +18,7 @@ const LoginSignup = () => {
     const [password, setPassword] = useState("");
     // State to store logged-in user's name
     const [loggedInUserName, setLoggedInUserName] = useState("");
+    const [statusMessage, setStatusMessage] = useState("");
 
     //Function handles login or signup button clicks
     const handleActionChange = (newAction) => {
@@ -60,6 +61,7 @@ const LoginSignup = () => {
                 //console.log("Error adding user!")
                 console.log(message);
             }
+            setStatusMessage(message);
         } catch (error) {
             console.log(error);
         }
@@ -87,6 +89,7 @@ const LoginSignup = () => {
                 console.log("Error logging in!")
                 console.log(message);
             }
+            setStatusMessage(message);
         } catch (error) {
             console.log(error);
         }
@@ -121,6 +124,7 @@ const LoginSignup = () => {
             {action === "Sign Up" ? null : (
                 <div className="forgot-password">Lost Password? <span>Click Here!</span></div>
             )}
+            <div className="status-message">{statusMessage}</div>
             {/* Sign up and login buttons */}
             <div className="submit-container">
                 <div className={action === "Login" ? "submit gray" : "submit"} onClick={() => handleActionChange("Sign Up")}>Sign Up</div>

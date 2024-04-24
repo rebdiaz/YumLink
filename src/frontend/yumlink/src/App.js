@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'; // Import BrowserRouter, Route, Switch, and Redirect
 import LoginSignup from './components/LoginSignup/LoginSignup'; 
 import Home from './components/Home/Home'; 
@@ -16,7 +16,7 @@ const App = () => {
     minHeight: '100vh', // Ensure the background covers the entire viewport height
   };
 
-  //Define paths for the application:
+  //Define routes for the application:
   return (
     <Router>
       <div style={appStyle}>
