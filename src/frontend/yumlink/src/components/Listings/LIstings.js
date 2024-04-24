@@ -1,5 +1,3 @@
-// Menu.js
-
 import React, {useEffect, useState} from 'react';
 import './Listings.css';
 import Pepperoni from '../Assets/pepperoni.jpg';
@@ -20,6 +18,7 @@ import axios from "axios";
 
 //reference for passing props: https://stackoverflow.com/questions/60669327/how-to-pass-props-through-window-href-react
 
+//Images of our listings:
 const MenuImages = [
     SugarCookies,
     Pepperoni,
@@ -34,12 +33,12 @@ const MenuImages = [
     Fish
 ];
 function MenuItem({ image, name, price, Chef, venmo, units, id }) {
-
+  //opens listing info when listing tile is clicked
   const handleClick = () => {
-      //console.log(id)
+      //pass the listing id as a query parameter to /view to access a specific listing
       window.location.href = `/view?id=${id}`;
   };
-
+  //Displays listing's name, price, and chef on tile
   return (
     <div className="menuItem" onClick={handleClick}>
       <div style={{ backgroundImage: `url(${image})` }}></div>
@@ -52,21 +51,18 @@ function MenuItem({ image, name, price, Chef, venmo, units, id }) {
 
 function Menu() {
 
+    //Redirect to the "/create" page when create listing button pressed:
     const handleListingsClick = () => {
-        // Handle button click logic here
-        window.location.href = '/create'; // Redirect to the "/create" page
+        window.location.href = '/create';
     };
-
-    const handleSortClick = () => {
-        // Handle sort button click logic here
-        // You can implement sorting functionality or redirect to a sorting page
-    };
+    //State to hold listings
     const [posts, setPosts] = useState({
         lists: []
     });
-    const [sortedPosts, setSortedPosts] = useState([]); // State to hold sorted posts
-    const [sortOrder, setSortOrder] = useState('asc'); // State to track sorting order
-
+    // State to hold sorted listings
+    const [sortedPosts, setSortedPosts] = useState([]);
+    // State to track sorting order
+    const [sortOrder, setSortOrder] = useState('asc');
 
     // Function to sort menu items by price
     const sortByPrice = () => {
@@ -81,7 +77,7 @@ function Menu() {
         setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc'); // Toggle sorting order
     };
 
-    //posts.
+    //Retrieves listings from the database
     async function fetchData() {
         try {
             const res = await axios.get("http://localhost:3001/listings",{
@@ -100,8 +96,6 @@ function Menu() {
     useEffect( () => {
         fetchData().then(r => console.log("fetched"));
     }, [posts]);
-    //console.log(posts);
-    //console.log(posts.lists.at(0).title);
 
         // Render sorted posts if sortedPosts is not empty, otherwise render unsorted posts
         const renderPosts = () => {
@@ -119,10 +113,11 @@ function Menu() {
             ));
         };
 
+    //Displays the title of the page, create new listing button, and sort button
     return (
         <div className="Listings">
             <h1 className="menuTitle">Menu</h1>
-            <ListingButton onClick={handleListingsClick}/> {/* Add the Listings button */}
+            <ListingButton onClick={handleListingsClick}/>
             <SortButton onClick={sortByPrice}/>
             <div className="menuList">
             {renderPosts()}

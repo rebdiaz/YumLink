@@ -3,6 +3,9 @@ import './ListingPopUp.css';
 import axios from "axios";
 
 function ListingForm() {
+
+  //State to manage form data for creating a dish listing
+  //This state stores values entered by the user while creating a listing
   const [formData, setFormData] = useState({
     title: '',
     pricePerUnit: '',
@@ -13,14 +16,19 @@ function ListingForm() {
     allergies: []
   });
 
+  //Handler function that manages changes in input:
   const handleInputChange = (e) => {
+    //Properties extracted from the event object
     const { name, value, type, checked } = e.target;
+    //If the input is done to a checkbox, update form data accordingly
     if (type === "checkbox") {
       setFormData(prevState => ({
         ...prevState,
         [name]: checked ? [...prevState[name], value] : prevState[name].filter(c => c !== value)
       }));
-    } else {
+    }
+    //Update the form data accordingly for a text input
+    else {
       setFormData(prevState => ({
         ...prevState,
         [name]: value
@@ -28,12 +36,15 @@ function ListingForm() {
     }
   };
 
+  //Function handles formatting user input and sending it to backend to create new listing:
   const handleSubmit = (e) => {
     e.preventDefault();
     
     // Validation: Check if title, pricePerUnit, numberOfUnits, and cuisine are not empty
     if (formData.title.trim() !== '' && formData.pricePerUnit.trim() !== '' && formData.numberOfUnits.trim() !== '' && formData.cuisine.trim() !== '' && formData.venmo.trim() !== '') {
-      // Here you would typically handle form submission, like sending data to a server
+    //Accessing user input to send it to server:
+
+      //Create and initialize variables that categorize the listing
       let breakfast = false;
       let lunch = false;
       let dinner = false;
@@ -43,6 +54,8 @@ function ListingForm() {
       let vegetarian = false;
       let vegan = false;
       let other = false;
+
+      //Update category variables based on user input on checkbox buttons
       if(formData.categories.findIndex((element) => element === 'Breakfast') !== -1){
         breakfast = true;
       }
@@ -70,6 +83,8 @@ function ListingForm() {
       if(formData.categories.findIndex((element) => element === 'Other') !== -1){
         other = true;
       }
+
+      //Create and initialize allergen variables:
       let dairy = false;
       let nut = false;
       let shellfish = false;
@@ -77,6 +92,8 @@ function ListingForm() {
       let soy = false;
       let wheat = false;
       let otherA = false;
+
+      //Update allergen variables based on user input
       if(formData.allergies.findIndex((element) => element === 'Dairy') !== -1){
         dairy = true;
       }
@@ -98,18 +115,24 @@ function ListingForm() {
       if(formData.allergies.findIndex((element) => element === 'Other') !== -1){
         otherA = true;
       }
+
+      //Send data to the server to create a new listing
       handleCreate(formData.title.trim(), formData.pricePerUnit.trim(), formData.numberOfUnits.trim(), breakfast, lunch, dinner,
           snack, dessert, beverage, vegetarian, vegan, other, formData.cuisine.trim(), dairy, nut, shellfish, fish, soy, wheat, otherA,
           formData.venmo.trim());
       console.log(formData);
+
+      //User returned to listings menu upon form submission
       handleClick();
     } else {
       alert('Please fill in all required fields.'); // You can customize this alert message
     }
   };
 
+  //Helper function that sends data to the server to create a new listing document in db
   const handleCreate = async (title, pricePerUnit, units, breakfast, lunch, dinner, snack, dessert, beverage, vegetarian, vegan, other, cuisine, dairy, nut, shellfish, fish, soy, wheat, otherA, venmo) => {
     try{
+      //post request creates a new listing based on parameters received from handleSubmit
       const { data } = axios.post(
           "http://localhost:3001/createlisting",
           {title: title, pricePerUnit: pricePerUnit, units: units, breakfast: breakfast, lunch: lunch, dinner: dinner, dessert: dessert, beverage: beverage, snack: snack,
@@ -117,6 +140,8 @@ function ListingForm() {
             nutAllergy: nut, soyAllergy: soy, fishAllergy: fish, otherAllergy: otherA, username: "reb", venmo: venmo},
           { withCredentials: true }
       );
+
+      //Success message printed in console if listing added
       const { success, message } = data;
       if (success) {
         console.log("Listing added");
@@ -130,11 +155,12 @@ function ListingForm() {
     }
   };
 
+  //Function redirects user to listings menu ('/listings') upon form submission
   const handleClick = () => {
-    window.location.href = '/listings'; // Redirect to '/listings'
+    window.location.href = '/listings';
   };
 
-
+  //Displays the input fields and updates any input:
   return (
     <form className="listing-form" onSubmit={handleSubmit}>
       <div className="form-group">

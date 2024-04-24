@@ -12,11 +12,14 @@ import axios from "axios";
 const LoginSignup = () => {
     const history = useHistory();
     const [action, setAction] = useState("Sign Up");
+    // States to hold user's sign up information
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [loggedInUserName, setLoggedInUserName] = useState(""); // State to store logged-in user's name
+    // State to store logged-in user's name
+    const [loggedInUserName, setLoggedInUserName] = useState("");
 
+    //Function handles login or signup button clicks
     const handleActionChange = (newAction) => {
         if (newAction === action) {
             // If the form is valid, perform the corresponding action
@@ -40,6 +43,7 @@ const LoginSignup = () => {
         }
     };
 
+    //Function sends user input login credentials and verifies them with post request
     const handleSignup = async () => {
         try {
             const { data } = await axios.post(
@@ -49,7 +53,6 @@ const LoginSignup = () => {
             );
             const { success, message } = data;
             if (success) {
-                //console.log("User added");
                 console.log(message);
                 localStorage.setItem("loggedInUserName", name);
                 history.push("/home");
@@ -62,6 +65,8 @@ const LoginSignup = () => {
         }
     };
 
+    //Function sends user input from signup page, creating new user entry in db
+    //User then logged in and home screen displayed
     const handleLogin = async () => {
         try {
             const { data } = await axios.post(
@@ -69,11 +74,13 @@ const LoginSignup = () => {
                 { username: email, password: password },
                 { withCredentials: true }
             );
-            const { success, message, name } = data; // Assuming the API returns the user's name
+            // API returns the user's name
+            const { success, message, name } = data;
             if (success) {
                 console.log("Logged in!");
                 console.log(message);
-                setLoggedInUserName(name); // Store logged-in user's name
+                // Store logged-in user's name in local storage to display personalized welcome msg
+                setLoggedInUserName(name);
                 localStorage.setItem("loggedInUserName", name);
                 history.push("/home");
             } else {
@@ -91,6 +98,7 @@ const LoginSignup = () => {
                 <div className='text'>{action}</div>
                 <div className='underline'></div>
             </div>
+            {/* Display name field if signing up */}
             <div className="inputs">
                 {action === "Login" ? null : (
                     <div className="input">
@@ -98,20 +106,22 @@ const LoginSignup = () => {
                         <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
                     </div>
                 )}
-                
+                {/* Input field for email */}
                 <div className="input">
                     <img src={email_icon} alt=""/>
                     <input type="email" placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
-
+                {/* Input field for password */}
                 <div className="input">
                     <img src={password_icon} alt=""/>
                     <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
             </div>
+            {/* Forgot password displayed if logging in */}
             {action === "Sign Up" ? null : (
                 <div className="forgot-password">Lost Password? <span>Click Here!</span></div>
             )}
+            {/* Sign up and login buttons */}
             <div className="submit-container">
                 <div className={action === "Login" ? "submit gray" : "submit"} onClick={() => handleActionChange("Sign Up")}>Sign Up</div>
                 <div className={action === "Sign Up" ? "submit gray" : "submit"} onClick={() => handleActionChange("Login")}>Login</div>
