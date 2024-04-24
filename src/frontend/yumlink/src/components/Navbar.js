@@ -16,7 +16,7 @@ class NavBar extends Component {
                 <a href='index.html' className="navbar__link">
                     <img src={logoImage} alt="Logo" className="logo" style={{ width: "70px", height: "70px" }} />
                 </a>
-
+                {/* Navbar options */}
                 <div>
                     <ul id="navbar">
                         <li><a href="/home">Home</a></li>
@@ -25,10 +25,10 @@ class NavBar extends Component {
                         <li><a href="/login">Login/SignUp</a></li>
                     </ul>
                 </div>
+                {/* Mobile menu icon */}
                 <div id="mobile" onClick={this.handleClick}>
                     <i
                         id="bar"
-                        // className={this.state.clicked ? 'fas fa-times': 'fas fa-bars'}
                     ></i>
                 </div>
             </nav>
