@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './Home.css';
 
+//reference for using local storage: https://www.freecodecamp.org/news/how-to-use-localstorage-with-react-hooks-to-set-and-get-items/
+
 const Home = () => {
     const [loggedInUserName, setLoggedInUserName] = useState("");
     useEffect(() => {

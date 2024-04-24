@@ -1,9 +1,10 @@
 const Listing = require("./ListingSchema");
 
-
+//Function creates a final list from all listings in database based on the desired filters
 module.exports.DisplayListings = async (req, res, next) => {
     let lists;
     try {
+        //desired listing qualities received from request body
         const {
             sorted, lowToHigh, highToLow, title, breakfast, lunch, dinner, dessert, beverage, snack,
             vegetarian, vegan, other, cuisine, dairyAllergy, glutenAllergy, shellfishAllergy,
@@ -11,6 +12,7 @@ module.exports.DisplayListings = async (req, res, next) => {
         } = req.body;
 
         lists = [];
+        //listings filtered based on the desired qualities
         if (sorted) {
             if (title !== '') {
                 lists.push(await Listing.find({title: title}, function (err, results) {}));
@@ -71,6 +73,7 @@ module.exports.DisplayListings = async (req, res, next) => {
             lists = await Listing.find({});
         }
 
+        //sorts list in ascending or descending order of price
         if(lowToHigh){
             lists.sort(function(a, b){return a.pricePerUnit - b.pricePerUnit});
             //lists = await Listing.find({}).sort({pricePerUnit: 'asc'});
@@ -79,7 +82,7 @@ module.exports.DisplayListings = async (req, res, next) => {
             //lists = await Listing.find({}).sort({pricePerUnit: 'desc'});
         }
 
-
+        //"lists" now contains all desired listings, sorted (or not) in the desired order
         res.status(201).json({success: true, message: "Listings found", lists});
 
         next();

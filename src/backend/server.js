@@ -9,8 +9,10 @@ const authRoute = require("./AuthRoute");
 const app = express()
 const port = 3001
 
+//MongoDB URL
 const MONGO_URL = "mongodb+srv://rebeccadiaz552:K0G9ztchgMgxLDP1@yumlink.q8bawkc.mongodb.net/?retryWrites=true&w=majority&appName=YumLink";
 
+//Connection to database:
 mongoose.connect(MONGO_URL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,

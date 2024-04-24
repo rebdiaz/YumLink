@@ -7,6 +7,8 @@ import email_icon from '../Assets/email.png'
 import password_icon from '../Assets/password.png'
 import axios from "axios";
 
+//reference for using local storage: https://www.freecodecamp.org/news/how-to-use-localstorage-with-react-hooks-to-set-and-get-items/
+
 const LoginSignup = () => {
     const history = useHistory();
     const [action, setAction] = useState("Sign Up");

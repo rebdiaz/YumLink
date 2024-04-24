@@ -18,14 +18,8 @@ import SortButton from '../SortButton/SortButton.js';
 import ListingForm from '../ListingPopUp/ListingPopUp.js'; // Import the new modal component
 import axios from "axios";
 
-// const { data } = axios.get(
-//     "http://localhost:3001/listings",
-//     {sorted: false, lowToHigh: false, highToLow: false, title: '', breakfast: '', lunch: '', dinner: '', dessert: '', beverage: '', snack: '',
-//             vegetarian: '', vegan: '', other: '', cuisine: '', dairyAllergy: '', glutenAllergy: '', shellfishAllergy: '',
-//             nutAllergy: '', soyAllergy: '', fishAllergy: '', otherAllergy: ''},
-//     { withCredentials: true }
-// );
-// const {success, message, listings} = data;
+//reference for passing props: https://stackoverflow.com/questions/60669327/how-to-pass-props-through-window-href-react
+
 const MenuImages = [
     SugarCookies,
     Pepperoni,
